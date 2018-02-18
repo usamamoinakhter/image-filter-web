@@ -1,0 +1,399 @@
+
+
+#container{
+position:absolute;
+top:0px;
+left:0px;
+height:2000px;
+width:100%;
+background-color:blue;
+
+}
+
+#mainBg{
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:750px;
+	width:100%;
+	background-color:red;
+}
+
+#introText{
+	position:absolute;
+	top:6%;
+	left:10%;
+	height:60%;
+	width:80%;
+    overflow: hidden;
+    text-overflow: clip; 
+	color:white;
+	font-size:90px;
+	text-align:center;
+    line-height:1.3;
+    font-family: arial;
+}
+
+
+#authorTextBG{
+	position:absolute;
+	bottom:25%;
+	left:45%;
+	width:10%;
+	height:5%;
+	background-color:rgba(187,4,4,0.8);
+
+}
+
+
+#authorText{
+	position:absolute;
+	bottom:25%;
+	left:30%;
+	height:5%;
+	width:40%;
+    overflow: hidden;
+    text-overflow: clip; 
+	color:white;
+	text-align:center;
+    line-height:0;
+    font-size:27;
+}
+
+#mainBgCover{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	opacity:0;
+	background-color:black;
+	background-color:rgba(0,0,0,0.5);
+}
+
+#mainBgCover:hover{
+	opacity:1;
+	-webkit-transition: all 1s ease;
+	-moz-transition : all 1s ease 0s;
+}
+
+
+#coverForm{
+	position:absolute;
+	bottom:15%;
+	height:13%;
+	left:40%;
+	width:20%;
+}
+
+
+#authorForm{
+	position:absolute;
+	bottom:10%;
+	height:3%;
+	left:42%;
+	width:16%;
+}
+
+.content{
+	text-align:center;
+	background-color:transparent;
+	border:solid white 2px;
+	height:100%;
+	width:100%;
+	border-radius:5px;
+	color:white;
+}
+
+#fontSettings{
+	position:absolute;
+	bottom:30%;
+	left:40%;
+	width:20%;
+	height:4%;
+	background-color:white;
+	background-color:rgba(255,255,255,0.4);
+	border:solid rgba(255,255,255,0.1) 2px;
+	border-radius:5px;
+	text-align:center;
+}
+
+#fontSettings:hover{
+	height:35%;
+	-webkit-transition: all 1s ease;
+	-moz-transition : all 1s ease 0s;
+}
+
+
+#fontText{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:32px;
+}
+
+#fontSettingsInner{
+	position:absolute;
+	top:15%;
+	left:4%;
+	width:92%;
+	height:80%;
+	opacity:0;
+	border-top:solid rgba(0,0,0,0.6) 1px;
+}
+
+
+#fontSettings:hover #fontSettingsInner{
+	opacity:1;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition : all 0.7s ease 0s;
+}
+
+
+#fontColorsSelection{
+	position:absolute;
+	top:2%;
+	left:5%;
+	width:90%;
+	height:17%;
+
+}
+
+.color1{
+	position:absolute;
+	left:6%;
+	width:15%;
+	height:90%;
+	top:5%;
+	background-color:black;
+	border-radius:20%;
+	cursor:hand;
+	cursor:pointer;
+}
+.color2{
+	position:absolute;
+	left:29%;
+	width:15%;
+	height:90%;
+	top:5%;
+	background-color:rgb(13,126,136);
+	border-radius:20%;
+	cursor:hand;
+	cursor:pointer;
+}
+
+.color3{
+	position:absolute;
+	right:29%;
+	width:15%;
+	height:90%;
+	top:5%;
+	background-color:rgb(187,4,4);
+	border-radius:20%;
+	cursor:hand;
+	cursor:pointer;
+}
+.color4{
+	position:absolute;
+	right:6%;
+	width:15%;
+	height:90%;
+	top:5%;
+	background-color:white;
+	border-radius:20%;
+	cursor:hand;
+	cursor:pointer;
+}
+
+
+
+#logo{
+	position:absolute;
+	top:5%;
+	left:20%;
+	height:7%;
+	width:60%;
+	background-image:url('quotesText.png');
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:auto 100%;
+}
+
+#authorBgSize{
+	position:absolute;
+	bottom:4%;
+
+	height:3%;
+	left:42%;
+	width:16%;
+
+}
+
+#sizeOfAuth{
+    position:absolute;
+    left:5%;
+    width:90%;
+}
+
+#dropDownFont{
+    position:absolute;
+    top:25%;
+    height:15%;
+    left:5%;
+    width:90%;
+    opacity:0;
+}
+
+#fontSettings:hover #dropDownFont{
+	opacity:1;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition : all 0.7s ease 0s;
+}
+
+
+#fontSelection{
+    position:absolute;
+    width:100%;
+    left:0px;
+    
+}
+    
+    
+
+
+    #dropDownFont select {
+        display: inline-block;
+        border: 2px solid rgba(187,4,4,0.8);
+        padding: 4px 3px 3px 5px;
+        margin: 0;
+        outline:none; /* remove focus ring from Webkit */
+        line-height: 1.2;
+        background: #f8f8f8;
+        
+        -webkit-appearance:none; /* remove the strong OSX influence from Webkit */
+        
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+    }
+
+    /* for Webkit's CSS-only solution */
+    @media screen and (-webkit-min-device-pixel-ratio:0) { 
+        #dropDownFont select {
+            padding-right:30px;    
+        }
+    }
+    
+    /* Since we removed the default focus styles, we have to add our own */
+    #dropDownFont select:focus {
+        -webkit-box-shadow: 0 0 3px 1px #c00;
+        -moz-box-shadow: 0 0 3px 1px #c00;
+        box-shadow: 0 0 3px 1px rgba(187,4,4,0.8);
+    }
+    
+    /* Select arrow styling */
+    #dropDownFont:after {
+        content: "▼";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 60%;
+        line-height: 30px;
+        padding: 0 7px;
+        background: rgba(187,4,4,0.8);
+        color: white;
+        
+        pointer-events:none;
+        
+        -webkit-border-radius: 0 6px 6px 0;
+        -moz-border-radius: 0 6px 6px 0;
+        border-radius: 0 6px 6px 0;
+    }
+    
+    .no-pointer-events #dropDownFont:after {
+        content: none;
+    }
+
+
+    #textBGCheck{
+        position:absolute;  
+        top:45%;
+        height:15%;
+        left:5%;
+        width:90%;
+    }
+
+    
+
+#fontSettings:hover #textBGCheck{
+	opacity:1;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition : all 0.7s ease 0s;
+}
+
+#introTextBg1{
+    position:absolute;
+    top:20%;
+    left:10%;
+    width:80%;
+    height:13%;
+    background-color:rgba(0,0,0,0.8);
+    opacity:1;
+}
+
+#introTextBg2{
+    position:absolute;
+    top:36%;
+    left:10%;
+    width:80%;
+    height:13%;
+    background-color:rgba(0,0,0,0.8);
+    opacity:0;
+}
+
+#introTextBg3{
+    position:absolute;
+    top:52%;
+    left:10%;
+    width:80%;
+    height:13%;
+    background-color:rgba(0,0,0,0.8);
+    opacity:0;
+}
+
+
+
+#quoteBgSize{
+	position:absolute;
+	bottom:2%;
+	height:15%;
+	left:5%;
+	width:90%;
+    background-color:orange;
+
+}
+
+#downloadButton{
+    position: absolute;
+	bottom:36%;
+	left:45%;
+	width:10%;
+	height:3%;
+    border: rgb(187,4,4) solid 2px;
+    color:white;
+    text-align: center;
+    cursor: hand;
+    cursor:pointer;
+}
+
+#downloadButton:hover{
+       border: transparent solid 2px; 
+        background-color: rgb(187,4,4);
+        color:white;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition : all 0.7s ease 0s;
+}
+    
+

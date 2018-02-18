@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>roundCube Labs Filter</title>
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  	
+</head>
+<body onload="canvasMaker();hideLoader()">
+<div id="container">
+    
+    <img id="filterImageFront" width="220" height="277" src="BattleXamb.png" alt="Filter" style="display:none">
+    <img id="s22" width="220" height="277" src="dpContainer.png" alt="defaultUserImage" style="display:none">
+
+    <script>
+
+	var xAxis=130;
+	var yAxis=0;
+
+		var zoomFactor=0.82;
+
+     function canvasMaker() {
+        var canvasWidth=700;
+        var canvasHeight=700;
+		
+		var personName=document.getElementById("nameUrl");
+		if(zoomFactor<0){
+			zoomFactor=0;
+		}
+
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+         ctx.clearRect(0, 0, c.width, c.height);
+        var img = document.getElementById("filterImageFront");
+            var img2 = document.getElementById("s22");
+
+            var realWidth = img2.naturalWidth;
+            var realHeight = img2.naturalHeight;
+
+            if(realWidth<canvasWidth){
+                var widthAspect=canvasWidth/realWidth;
+				ctx.drawImage(img2, xAxis, yAxis,realWidth*widthAspect*zoomFactor,realHeight*widthAspect*zoomFactor);
+				}
+            else if(realHeight<canvasHeight){
+                var widthAspect=canvasHeight/realHeight;
+				ctx.drawImage(img2, xAxis, yAxis,realWidth*widthAspect*zoomFactor,realHeight*widthAspect*zoomFactor);
+				}
+            else{
+                var widthAspect=1;
+				ctx.drawImage(img2, xAxis, yAxis,700*zoomFactor,700*zoomFactor);
+				}
+        //alert(img2.src+" width="+ realWidth + "    height="+realHeight);
+
+        ctx.drawImage(img, 0, 0);
+
+		
+		ctx.font="33px Helvetica";
+		ctx.fillStyle = 'white';
+		ctx.textAlign="center"; 
+		
+		ctx.fillText(personName.value,495,550);
+		
+
+      //   setTimeout(canvasMaker(),5000);
+
+    }
+
+    function loadImg(){
+        var url=document.getElementById('imgUrl').value;
+         var img2 = document.getElementById("s22");
+        img2.src = url;
+
+        canvasMaker();
+        canvasMaker();
+		
+		
+
+
+    }
+	
+	function simulateClick(){
+		document.getElementById('filterButt').click();
+		
+		setTimeout(simulateClick,500);
+	}
+        
+        function hideLoader(){
+            var stScreen = document.getElementById("startCover");
+            
+            stScreen.style.opacity="0";
+            stScreen.style.visibility="hidden";
+            
+        }
+
+		
+		function moveImageRight(){
+			xAxis+=10;
+			canvasMaker();
+			
+		}
+		function moveImageLeft(){
+			xAxis-=10;
+			canvasMaker();
+			
+		}
+		
+		function moveImageUp(){
+			yAxis-=10;
+			canvasMaker();
+			
+		}
+
+		
+		function moveImageDown(){
+			yAxis+=10;
+			canvasMaker();
+			
+		}
+		
+		
+		function zoomIntoImage(){
+			zoomFactor+=0.1;
+			canvasMaker();
+
+		}
+
+		function zoomOutImage(){
+			zoomFactor-=0.1;
+			canvasMaker();
+		}
+		
+
+		
+		
+
+function downloadImage(){
+var canvas = document.getElementById('myCanvas');
+var dataURL = canvas.toDataURL('image/jpeg', 1.0);
+	console.log(dataURL);
+	alert(dataURL);
+    button.href = dataURL;
+
+}
+
+
+		
+		
+		
+		
+    </script>
+
+        <div id="leftDivision">
+                <div id="dpDisplayer">
+                    <canvas id="myCanvas" width="700" height="700" style="border:1px solid #d3d3d3;position:relative;width:100%;height:100%;left:0%;top:0%;" >
+                            Your browser does not support this feature.
+    </canvas>
+
+					
+
+            </div>
+        </div>
+              <div id="rightDivision">
+				<div id="textPanel">
+                    <input type="text" name="url" placeholder="Enter image url here" id="imgUrl" oninput="simulateClick()">
+					</br>
+                    <input type="text" name="yourName" placeholder="Enter your name" id="nameUrl" oninput="simulateClick()" >
+                    <button type="button" onclick="loadImg()" id="filterButt" style="visibility:hidden;">Click Me!</button>
+				</div>
+	
+					<div id="imageMovementPanel">
+						<div id="movementRight" onclick="moveImageRight()"></div>
+						<div id="movementLeft"  onclick="moveImageLeft()"></div>
+						<div id="movementUp"  onclick="moveImageUp()"></div>
+						<div id="movementDown"  onclick="moveImageDown()"></div>
+					</div>
+					<div id="imageSizePanel">
+						<div id="zoomIn" onclick="zoomIntoImage()" ></div>
+						<div id="zoomOut" onclick="zoomOutImage()"></div>
+					</div>
+					</br></br>
+					</br></br>
+					<a href="#" class="button" id="btn-download" download="my-file-name.png" onclick="downloadImage()">Download</a>
+
+    
+            </div>
+		
+		
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style='visibility:hidden' id='modButton'>Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Like Our Facebook Page</h4>
+      </div>
+      <div class="modal-body">
+		<iframe
+			src="https://www.facebook.com/plugins/like.php?href=http://www.facebook.com/roundCubeLabs"
+			scrolling="no" frameborder="0"
+			style="border:none; width:450px; height:80px">
+		</iframe>
+		<h4><a href='http://www.facebook.com/roundCubeLabs'>roundCube Labs</a></h4>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+		
+		
+		
+    </div>
+</body>
+<style>
+    
+    #container{
+
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:100%;
+        height: 100%;
+        
+        
+    }
+    
+    #startCover{
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+        	-webkit-transition: all 1s ease;
+	-moz-transition : all 1s ease 0s;
+    }
+    #dpDisplayer{
+        
+
+        height:300px;
+        width: 300px;
+        margin: 0px auto;
+       
+
+
+        
+    }
+    
+    #leftDivision{
+        position: absolute;
+			top:0px;
+			left:0px;
+			height:60%;
+			width:100%;
+        background-color: white;
+    }
+    
+    #rightDivision{
+        position: absolute;
+			top:60%;
+			right:0px;
+			height:40%;
+			width:100%;
+
+    }
+	
+	#imgUrl,#nameUrl{
+		position:absolute;
+		width:70%;
+		height:40px;
+		left:15%;
+		background-color:rgba(0,0,0,0.1);
+		border-style:none;
+		font-size:20px;
+		color:gray;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition : all 0.3s ease 0s;
+		text-align:center;
+	}
+	
+	#nameUrl{
+		margin-top:40px;
+	}
+	
+	#imgUrl:focus{
+		left:0%;
+		width:100%;
+		border: none;
+		border-color:none;
+	}
+	
+	
+	#nameUrl:focus{
+		left:0%;
+		width:100%;
+		border: none;
+		border-color:none;
+	}
+	
+	
+	#imageMovementPanel{
+		position:absolute;
+		left:0px;
+		bottom:0px;
+		width:120px;
+		height:120px;
+
+	
+	}
+	
+	#movementRight{
+		position:absolute;
+		top:35%;
+		right:0%;
+		width:30%;
+		height:30%;
+		cursor:pointer;
+		background-image:url('arrow.png');
+		background-size:100% 100%;
+		transform:rotate(180deg);
+	}
+
+
+	#movementLeft{
+		position:absolute;
+		top:35%;
+		left:0%;
+		width:30%;
+		height:30%;
+		cursor:pointer;
+		background-image:url('arrow.png');
+		background-size:100% 100%;
+	}
+		
+	#movementUp{
+		position:absolute;
+		right:35%;
+		top:0%;
+		width:30%;
+		height:30%;
+		cursor:pointer;
+		background-image:url('arrow.png');
+		background-size:100% 100%;
+		transform:rotate(90deg);
+	}
+	
+	#movementDown{
+		position:absolute;
+		right:35%;
+		bottom:0%;
+		width:30%;
+		height:30%;
+		background-image:url('arrow.png');
+		background-size:100% 100%;
+		transform:rotate(-90deg);
+		cursor:pointer;
+	}
+		
+	#imageSizePanel{
+		position:absolute;
+		right:0px;
+		bottom:15%;
+		width:120px;
+		height:50px;
+	
+	}
+	
+	#zoomIn{
+		position:absolute;
+		top:0px;
+		height:100%;
+		left:0px;
+		width:40%;
+		cursor:pointer;
+		background-image:url('zoomin.png');
+		background-size:100% 100%;
+	}
+	
+	#zoomOut{
+		position:absolute;
+		top:0px;
+		height:100%;
+		right:0px;
+		width:40%;
+		cursor:pointer;
+		background-image:url('zoomout.png');
+		background-size:100% 100%;
+
+	}
+	
+	#textPanel{
+		position:relative;
+		top:0px;
+		left:5%;
+		width:90%;
+		height:70%;
+	}
+	
+	
+
+</style>
+
+<script>
+function hideLoader(){
+	document.getElementById('modButton').click();
+}
+
+
+
+</script>
+
+</html>
